@@ -16,8 +16,8 @@ class Product(models.Model):
 
     product_name = models.CharField(max_length=200)
     product_description = models.TextField()
-    product_category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    product_sub_category = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
+    product_category = models.ForeignKey(Category, to_field='name', on_delete=models.CASCADE)
+    product_sub_category = models.ForeignKey(SubCategory, to_field='name', on_delete=models.CASCADE)
     product_price = models.DecimalField(max_digits=10, decimal_places=2)
     product_location = models.CharField(max_length=200)
     product_brands = models.CharField(max_length=150) 

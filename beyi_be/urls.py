@@ -27,9 +27,9 @@ from userauth import urls as userauth_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include(userauth_urls)),
-    path('products/', include(product_urls)),
-    path('categories/', include(category_urls)),
-    path('subcategories/', include(subcategory_urls)),
+    path('api/products/', include(product_urls)),
+    path('api/categories/', include(category_urls)),
+    path('api/subcategories/', include(subcategory_urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT,)
 
 
