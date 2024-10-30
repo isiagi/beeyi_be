@@ -90,18 +90,45 @@ TEMPLATES = [
     },
 ]
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        '': {  # Root logger
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+    },
+}
+
 WSGI_APPLICATION = 'beyi_be.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default="postgresql://beeyi_yo_user:IGW2L0TIvbpLoxdfQ2gNhVqRdy00ZT0D@dpg-csgut3jtq21c73e0768g-a.oregon-postgres.render.com/beeyi_yo",
+        # conn_max_age=env("CONN_MAX_AGE", cast=int),
+        # ssl_require=env("SSL_REQUIRE", cast=bool),
+        # conn_health_checks=env("CONN_HEALTH_CHECKS", cast=bool),
+    )
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
