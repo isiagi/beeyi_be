@@ -15,13 +15,13 @@ class Product(models.Model):
     ]
 
     product_name = models.CharField(max_length=200)
-    product_description = models.TextField()
+    product_description = models.TextField(max_length=500)
     product_category = models.ForeignKey(Category, to_field='name', on_delete=models.CASCADE)
     product_sub_category = models.ForeignKey(SubCategory, to_field='name', on_delete=models.CASCADE)
     product_price = models.DecimalField(max_digits=10, decimal_places=2)
     product_location = models.CharField(max_length=200)
     product_brand = models.CharField(max_length=150) 
-    product_image = models.ImageField(upload_to=upload_to, blank=True, null=True) # Store an array of image URLs
+    product_image = models.ImageField(upload_to=upload_to, blank=True, null=True, max_length=500) # Store an array of image URLs
     product_condition = models.CharField(max_length=20, choices=CONDITION_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)

@@ -1,0 +1,302 @@
+[
+  {
+    "model": "product.Product",
+    "pk": 1,
+    "fields": {
+      "product_name": "Smartphone X200",
+      "product_description": "A high-performance smartphone with cutting-edge technology and design.",
+      "product_category": "Electronics",
+      "product_sub_category": "Smartphones",
+      "product_price": "899.99",
+      "product_location": "New York, USA",
+      "product_brand": "TechCorp",
+      "product_image": "https://images.unsplash.com/photo-1507955987999-df4864ee80d4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGhvbmV8ZW58MHx8MHx8fDA%3D",
+      "product_condition": "new"
+    }
+  },
+  {
+    "model": "product.Product",
+    "pk": 2,
+    "fields": {
+      "product_name": "Gaming Laptop Pro",
+      "product_description": "A powerful laptop optimized for high-end gaming and intensive applications.",
+      "product_category": "Electronics",
+      "product_sub_category": "Laptops",
+      "product_price": "1499.99",
+      "product_location": "San Francisco, USA",
+      "product_brand": "PowerGaming",
+      "product_image": "https://images.unsplash.com/photo-1507955987999-df4864ee80d4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGhvbmV8ZW58MHx8MHx8fDA%3D",
+      "product_condition": "new"
+    }
+  },
+  {
+    "model": "product.Product",
+    "pk": 3,
+    "fields": {
+      "product_name": "Refurbished DSLR Camera",
+      "product_description": "A professional-grade DSLR camera, carefully refurbished for optimal performance.",
+      "product_category": "Electronics",
+      "product_sub_category": "Cameras",
+      "product_price": "549.99",
+      "product_location": "Los Angeles, USA",
+      "product_brand": "PhotoWorks",
+      "product_image": "https://images.unsplash.com/photo-1460134846237-51c777df6111?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2FtZXJhfGVufDB8fDB8fHww",
+      "product_condition": "refurbished"
+    }
+  },
+  {
+    "model": "product.Product",
+    "pk": 4,
+    "fields": {
+      "product_name": "Bluetooth Speaker",
+      "product_description": "Portable Bluetooth speaker with high-quality sound and long battery life.",
+      "product_category": "Electronics",
+      "product_sub_category": "Audio",
+      "product_price": "79.99",
+      "product_location": "Chicago, USA",
+      "product_brand": "SoundWave",
+      "product_image": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGF1ZGlvfGVufDB8fDB8fHww",
+      "product_condition": "new"
+    }
+  },
+  {
+    "model": "product.Product",
+    "pk": 5,
+    "fields": {
+      "product_name": "Mountain Bike",
+      "product_description": "A durable mountain bike suitable for all terrains, perfect for outdoor enthusiasts.",
+      "product_category": "Sports",
+      "product_sub_category": "Bikes",
+      "product_price": "499.99",
+      "product_location": "Denver, USA",
+      "product_brand": "TrailMaster",
+      "product_image": "https://plus.unsplash.com/premium_photo-1678718713393-2b88cde9605b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmlrZXxlbnwwfHwwfHx8MA%3D%3D",
+      "product_condition": "used"
+    }
+  },
+  {
+    "model": "product.Product",
+    "pk": 6,
+    "fields": {
+      "product_name": "Electric Guitar",
+      "product_description": "A high-quality electric guitar, perfect for both beginners and professionals.",
+      "product_category": "Music",
+      "product_sub_category": "Instruments",
+      "product_price": "299.99",
+      "product_location": "Austin, USA",
+      "product_brand": "StringFury",
+      "product_image": "https://images.unsplash.com/photo-1522870389523-7e83c0065eaf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8SW5zdHJ1bWVudHN8ZW58MHx8MHx8fDA%3D",
+      "product_condition": "new"
+    }
+  },
+  {
+    "model": "product.Product",
+    "pk": 7,
+    "fields": {
+      "product_name": "Winter Jacket",
+      "product_description": "A stylish and warm winter jacket suitable for cold climates.",
+      "product_category": "Fashion",
+      "product_sub_category": "Clothing",
+      "product_price": "129.99",
+      "product_location": "Boston, USA",
+      "product_brand": "NorthSky",
+      "product_image": "https://plus.unsplash.com/premium_photo-1671030274122-b6ac34f87b8b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8SmFja2V0fGVufDB8fDB8fHww",
+      "product_condition": "new"
+    }
+  },
+  {
+    "model": "product.Product",
+    "pk": 8,
+    "fields": {
+      "product_name": "Organic Green Tea",
+      "product_description": "Premium organic green tea with a fresh and invigorating taste.",
+      "product_category": "Food & Beverages",
+      "product_sub_category": "Tea",
+      "product_price": "14.99",
+      "product_location": "Seattle, USA",
+      "product_brand": "TeaZen",
+      "product_image": "https://images.unsplash.com/photo-1502741384106-56538427cde9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8T3JnYW5pYyUyMEdyZWVuJTIwVGVhfGVufDB8fDB8fHww",
+      "product_condition": "new"
+    }
+  },
+  {
+    "model": "product.Product",
+    "pk": 9,
+    "fields": {
+      "product_name": "Smart TV 55\"",
+      "product_description": "A 55-inch Smart TV with 4K resolution and streaming capabilities.",
+      "product_category": "Electronics",
+      "product_sub_category": "Televisions",
+      "product_price": "699.99",
+      "product_location": "Houston, USA",
+      "product_brand": "ViewPlus",
+      "product_image": "https://images.unsplash.com/photo-1593784991095-a205069470b6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U21hcnQlMjBUViUyMDU1JTVDfGVufDB8fDB8fHww",
+      "product_condition": "new"
+    }
+  },
+  {
+    "model": "product.Product",
+    "pk": 10,
+    "fields": {
+      "product_name": "Yoga Mat",
+      "product_description": "Eco-friendly yoga mat with non-slip surface, perfect for home workouts.",
+      "product_category": "Sports",
+      "product_sub_category": "Fitness",
+      "product_price": "29.99",
+      "product_location": "Miami, USA",
+      "product_brand": "BalanceYoga",
+      "product_image": "https://plus.unsplash.com/premium_photo-1663090241828-1d5f7456b699?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8WW9nYSUyME1hdHxlbnwwfHwwfHx8MA%3D%3D",
+      "product_condition": "new"
+    }
+  },
+  {
+    "model": "product.Product",
+    "pk": 11,
+    "fields": {
+      "product_name": "Leather Wallet",
+      "product_description": "Genuine leather wallet with multiple card slots and a sleek design.",
+      "product_category": "Fashion",
+      "product_sub_category": "Accessories",
+      "product_price": "49.99",
+      "product_location": "Las Vegas, USA",
+      "product_brand": "PureLeather",
+      "product_image": "https://images.unsplash.com/photo-1629958513881-a086d21383cd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8TGVhdGhlciUyMFdhbGxldHxlbnwwfHwwfHx8MA%3D%3D",
+      "product_condition": "new"
+    }
+  },
+  {
+    "model": "product.Product",
+    "pk": 12,
+    "fields": {
+      "product_name": "Electric Kettle",
+      "product_description": "Quick-boiling electric kettle with auto shut-off feature.",
+      "product_category": "Home Appliances",
+      "product_sub_category": "Kitchen",
+      "product_price": "39.99",
+      "product_location": "Dallas, USA",
+      "product_brand": "QuickBoil",
+      "product_image": "https://images.unsplash.com/photo-1571552879083-e93b6ea70d1d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8RWxlY3RyaWMlMjBLZXR0bGV8ZW58MHx8MHx8fDA%3D",
+      "product_condition": "new"
+    }
+  },
+  {
+    "model": "product.Product",
+    "pk": 13,
+    "fields": {
+      "product_name": "Children's Storybook Set",
+      "product_description": "A collection of popular children's storybooks.",
+      "product_category": "Books",
+      "product_sub_category": "Children",
+      "product_price": "24.99",
+      "product_location": "Portland, USA",
+      "product_brand": "HappyReads",
+      "product_image": "https://plus.unsplash.com/premium_photo-1682308336208-7f3c19e6a96b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Q2hpbGRyZW4ncyUyMFN0b3J5Ym9vayUyMFNldHxlbnwwfHwwfHx8MA%3D%3D",
+      "product_condition": "new"
+    }
+  },
+  {
+    "model": "product.Product",
+    "pk": 14,
+    "fields": {
+      "product_name": "Office Chair",
+      "product_description": "Ergonomic office chair with adjustable height and lumbar support.",
+      "product_category": "Furniture",
+      "product_sub_category": "Office",
+      "product_price": "189.99",
+      "product_location": "Phoenix, USA",
+      "product_brand": "ComfortSeat",
+      "product_image": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fE9mZmljZSUyMENoYWlyfGVufDB8fDB8fHww",
+      "product_condition": "new"
+    }
+  },
+  {
+    "model": "product.Product",
+    "pk": 15,
+    "fields": {
+      "product_name": "Drip Coffee Maker",
+      "product_description": "Classic drip coffee maker for a perfect morning brew.",
+      "product_category": "Home Appliances",
+      "product_sub_category": "Kitchen",
+      "product_price": "59.99",
+      "product_location": "Atlanta, USA",
+      "product_brand": "BrewMaster",
+      "product_image": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8RHJpcCUyMENvZmZlZSUyME1ha2VyfGVufDB8fDB8fHww",
+      "product_condition": "new"
+    }
+  },
+  {
+    "model": "product.Product",
+    "pk": 16,
+    "fields": {
+      "product_name": "Ceramic Vase Set",
+      "product_description": "Beautiful ceramic vases, perfect for home decor.",
+      "product_category": "Home Decor",
+      "product_sub_category": "Decor",
+      "product_price": "44.99",
+      "product_location": "Sacramento, USA",
+      "product_brand": "HomeTouch",
+      "product_image": "https://images.unsplash.com/photo-1525974160448-038dacadcc71?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fENlcmFtaWMlMjBWYXNlJTIwU2V0fGVufDB8fDB8fHww",
+      "product_condition": "new"
+    }
+  },
+  {
+    "model": "product.Product",
+    "pk": 17,
+    "fields": {
+      "product_name": "Digital SLR Camera Lens",
+      "product_description": "High-quality zoom lens for DSLR cameras.",
+      "product_category": "Electronics",
+      "product_sub_category": "Camera Accessories",
+      "product_price": "349.99",
+      "product_location": "Seattle, USA",
+      "product_brand": "LensMaster",
+      "product_image": "https://plus.unsplash.com/premium_photo-1673349178750-b35929b751b1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RGlnaXRhbCUyMFNMUiUyMENhbWVyYSUyMExlbnN8ZW58MHx8MHx8fDA%3D",
+      "product_condition": "new"
+    }
+  },
+  {
+    "model": "product.Product",
+    "pk": 18,
+    "fields": {
+      "product_name": "Wireless Earbuds",
+      "product_description": "High-quality wireless earbuds with noise cancellation.",
+      "product_category": "Electronics",
+      "product_sub_category": "Audio",
+      "product_price": "99.99",
+      "product_location": "San Diego, USA",
+      "product_brand": "SoundCore",
+      "product_image": "https://images.unsplash.com/photo-1627989580309-bfaf3e58af6f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8V2lyZWxlc3MlMjBFYXJidWRzfGVufDB8fDB8fHww",
+      "product_condition": "new"
+    }
+  },
+  {
+    "model": "product.Product",
+    "pk": 19,
+    "fields": {
+      "product_name": "Mountain Tent",
+      "product_description": "A waterproof tent suitable for mountain camping.",
+      "product_category": "Sports",
+      "product_sub_category": "Camping Gear",
+      "product_price": "219.99",
+      "product_location": "Denver, USA",
+      "product_brand": "MountainBase",
+      "product_image": "https://images.unsplash.com/photo-1522031153701-b3eba74004e8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8TW91bnRhaW4lMjBUZW50fGVufDB8fDB8fHww",
+      "product_condition": "new"
+    }
+  },
+  {
+    "model": "product.Product",
+    "pk": 20,
+    "fields": {
+      "product_name": "Graphic Design Book",
+      "product_description": "An essential guide to modern graphic design principles.",
+      "product_category": "Books",
+      "product_sub_category": "Art & Design",
+      "product_price": "34.99",
+      "product_location": "New York, USA",
+      "product_brand": "DesignMind",
+      "product_image": "https://images.unsplash.com/photo-1525972292986-69295aebf4cc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8R3JhcGhpYyUyMERlc2lnbiUyMEJvb2t8ZW58MHx8MHx8fDA%3D",
+      "product_condition": "new"
+    }
+  }
+]

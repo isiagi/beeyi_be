@@ -14,6 +14,7 @@ class ProductSerializer(serializers.ModelSerializer):
 class ProductListSerializer(serializers.ModelSerializer):
     product_category = serializers.StringRelatedField()
     product_sub_category = serializers.StringRelatedField()
+    product_image = serializers.CharField() #for remote image, remove /media/ from url
 
     class Meta:
         model = Product
@@ -22,6 +23,7 @@ class ProductListSerializer(serializers.ModelSerializer):
 class ProductDetailSerializer(serializers.ModelSerializer):
     product_category = serializers.StringRelatedField()
     product_sub_category = serializers.StringRelatedField()
+    product_image = serializers.CharField()  #for remote image, remove /media/ from url
 
     class Meta:
         model = Product
