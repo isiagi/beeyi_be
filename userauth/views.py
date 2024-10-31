@@ -36,6 +36,21 @@ class UserDetailApiView(RetrieveUpdateDestroyAPIView):
     serializer_class = UserSerializer
     queryset = CustomUser.objects.all()
 
+    permission_classes = [AllowAny]
+
+    # def get_queryset(self):
+    #     return CustomUser.objects.filter(id=self.kwargs['pk'])
+    
+    def update(self, request, *args, **kwargs):
+        print("Request data:", request.data)
+        return super().update(request, *args, **kwargs)
+
+    # def get_object(self):
+    #     print(f"Requested PK: {self.kwargs.get('pk')}")
+    #     obj = super().get_object()
+    #     print(f"Retrieved object ID: {obj.id}")
+    #     return obj
+
 class UserDeleteApi(DestroyAPIView):
    queryset = CustomUser.objects.all()
    serializer_class = UserSerializer
