@@ -1,43 +1,38 @@
-from django.shortcuts import render
-import logging
+from .models import Product, ProductAttribute
+from .serializers import ProductSerializer, ProductAttributeSerializer
 from rest_framework import viewsets
-from rest_framework.permissions import AllowAny
-from .models import Product
-from .serializers import ProductSerializer, ProductListSerializer, ProductDetailSerializer
-from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
+from rest_framework.decorators import action
+from rest_framework.response import Response
 
-# Configure a logger
-logger = logging.getLogger(__name__)
+
+class ProductAttributeViewSet(viewsets.ModelViewSet):
+    queryset = ProductAttribute.objects.all()
+    serializer_class = ProductAttributeSerializer
+    # permission_classes = [IsAuthenticated]
+    # filter_backends = [DjangoFilterBackend]
+    # filterset_fields = ['category', 'field_type', 'is_required']
 
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
-    permission_classes = [AllowAny]
-    parser_classes = (MultiPartParser, FormParser, JSONParser)
+    serializer_class = ProductSerializer
+    # permission_classes = [IsAuthenticatedOrReadOnly, IsSellerOrReadOnly]
+    # filter_backends = [DjangoFilterBackend, filters.SearchFilter, 
+    #                   filters.OrderingFilter]
+    # filterset_class = ProductFilter
+    # search_fields = ['title', 'description']
+    # ordering_fields = ['created_at', 'price']
+    # lookup_field = 'slug'
     
-    def get_serializer_class(self):
-        if self.action == 'list':
-            return ProductListSerializer
-        elif self.action == 'retrieve':
-            return ProductDetailSerializer
-        return ProductSerializer
-
-    def create(self, request, *args, **kwargs):
-        # Log the raw request body
-        # logger.info(f"Raw request body: {request.body}")
+    def perform_create(self, serializer):
+        serializer.save(seller=self.request.user)
+    
+    @action(detail=False)
+    def my_products(self, request):
+        products = self.get_queryset().filter(seller=request.user)
+        page = self.paginate_queryset(products)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
         
-        # Log parsed data (works for JSON and form data)
-        # logger.info(f"Request data: {request.data}")
-        
-        # Log files if any
-        if request.FILES:
-            logger.info(f"Request files: {request.FILES}")
-            
-        # Log query parameters
-        logger.info(f"Query params: {request.query_params}")
-        
-        return super().create(request, *args, **kwargs)
-
-    def update(self, request, *args, **kwargs):
-        logger.info(f"Update request body: {request.body}")
-        logger.info(f"Update request data: {request.data}")
-        return super().update(request, *args, **kwargs)
+        serializer = self.get_serializer(products, many=True)
+        return Response(serializer.data)

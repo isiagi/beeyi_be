@@ -67,9 +67,10 @@ CORS_ALLOWED_ORIGINS = [
 
 # Add the following configuration for Django REST Framework
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated'
-    ]
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ],
 }
 
 ROOT_URLCONF = 'beyi_be.urls'
@@ -116,7 +117,7 @@ import dj_database_url
 
 DATABASES = {
     'default': dj_database_url.config(
-        default="postgresql://beeyi_user:qch3e0TMTfzhXB31AlXThRPXtjBjS8WD@dpg-ctvpl53tq21c73ahi520-a.oregon-postgres.render.com/beeyi",
+        default="postgres://avnadmin:AVNS_I7valaVZgCOaxco7Rof@pg-35c4daa-codedeveloper47-d29f.c.aivencloud.com:14503/defaultdb?sslmode=require",
         # conn_max_age=env("CONN_MAX_AGE", cast=int),
         # ssl_require=env("SSL_REQUIRE", cast=bool),
         # conn_health_checks=env("CONN_HEALTH_CHECKS", cast=bool),
