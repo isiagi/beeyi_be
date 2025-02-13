@@ -3,28 +3,23 @@ from category.models import Category
 from userauth.models import CustomUser
 from django.core.exceptions import ValidationError
 
-class ProductAttribute(models.Model):
-    name = models.CharField(max_length=100)
-    category = models.ForeignKey(Category, related_name='attributes', 
-                                on_delete=models.CASCADE)
-    FIELD_TYPES = [
-        ('text', 'Text'),
-        ('number', 'Number'),
-        ('boolean', 'Yes/No'),
-        ('choice', 'Multiple Choice'),
-        ('date', 'Date'),
-    ]
-    field_type = models.CharField(max_length=20, choices=FIELD_TYPES)
-    is_required = models.BooleanField(default=False)
-    choices = models.JSONField(null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+class ProductImage(models.Model):
+    product = models.ForeignKey('Product', related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='products/%Y/%m/%d/')
+    is_primary = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
     
     class Meta:
-        ordering = ['name']
-        unique_together = ['category', 'name']
-    
+        ordering = ['-is_primary', '-created_at']
+
     def __str__(self):
-        return f"{self.category.full_path} - {self.name}"
+        return f"Image for {self.product.title}"
+
+    def save(self, *args, **kwargs):
+        if self.is_primary:
+            # Set all other images of this product to not primary
+            ProductImage.objects.filter(product=self.product, is_primary=True).update(is_primary=False)
+        super().save(*args, **kwargs)
 
 class Product(models.Model):
     title = models.CharField(max_length=200)
@@ -46,18 +41,19 @@ class Product(models.Model):
     
     def __str__(self):
         return self.title
-    
-    def clean(self):
-        if self.category and self.category.subcategories.exists():
-            raise ValidationError(
-                'Products can only be created in leaf categories.'
-            )
 
-class ProductAttributeValue(models.Model):
-    product = models.ForeignKey(Product, related_name='attribute_values', 
-                               on_delete=models.CASCADE)
-    attribute = models.ForeignKey(ProductAttribute, on_delete=models.CASCADE)
-    value = models.JSONField()
-    
-    class Meta:
-        unique_together = ('product', 'attribute')
+    @property
+    def primary_image(self):
+        return self.images.filter(is_primary=True).first()
+
+    @property
+    def all_categories(self):
+        """
+        Returns a list of all parent categories including the product's direct category
+        """
+        categories = []
+        current_category = self.category
+        while current_category:
+            categories.append(current_category)
+            current_category = current_category.parent
+        return categories[::-1]  # Reverse to get root -> leaf order

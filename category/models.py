@@ -29,3 +29,12 @@ class Category(models.Model):
         if self.parent:
             return f"{self.parent.full_path}/{self.name}"
         return self.name
+
+    def get_all_subcategories(self):
+        """
+        Recursively get all subcategories of this category
+        """
+        subcategories = list(self.subcategories.all())
+        for subcategory in self.subcategories.all():
+            subcategories.extend(subcategory.get_all_subcategories())
+        return subcategories
