@@ -30,6 +30,9 @@ class Product(models.Model):
                                 on_delete=models.CASCADE)
     seller = models.ForeignKey(CustomUser, related_name='products', 
                               on_delete=models.CASCADE)
+    condition = models.CharField(max_length=100, blank=True, null=True)
+    location = models.CharField(max_length=100, blank=True, null=True)
+    brand = models.CharField(max_length=100, blank=True, null=True)
     is_active = models.BooleanField(default=True)
     contact_email = models.EmailField()
     contact_phone = models.CharField(max_length=20, blank=True)

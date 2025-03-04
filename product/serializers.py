@@ -20,25 +20,27 @@ class ProductSerializer(serializers.ModelSerializer):
     product_sub_category = serializers.CharField(write_only=True)
     product_name = serializers.CharField(source='title')
     product_price = serializers.DecimalField(source='price', max_digits=10, decimal_places=2)
+    # product_contact = serializers.CharField(source='contact_phone')
     product_description = serializers.CharField(source='description')
-    product_location = serializers.CharField(write_only=True)
-    product_condition = serializers.CharField(write_only=True)
-    product_brand = serializers.CharField(write_only=True)
+    product_location = serializers.CharField(source='location')
+    product_condition = serializers.CharField(source='condition')
+    product_brand = serializers.CharField(source='brand')
     product_promotion = serializers.CharField(write_only=True, required=False)
     product_seller = serializers.CharField(source='seller', read_only=True)
 
     class Meta:
         model = Product
         fields = [
-            'id', 'product_name', 'slug', 'product_description', 
+            'id', 'product_name', 'slug', 'product_description',
             'product_price', 'product_category', 'product_sub_category',
             'product_location', 'product_condition', 'product_brand', 'product_seller',
             'product_promotion', 'images', 'product_images',
-            'created_at', 'updated_at'
+            'created_at', 'updated_at', 'contact_phone'
         ]
         read_only_fields = ['slug', 'created_at', 'updated_at']
 
     def create(self, validated_data):
+        print(validated_data)
         # Extract image data
         images = validated_data.pop('product_images', [])
         
@@ -61,6 +63,10 @@ class ProductSerializer(serializers.ModelSerializer):
             'seller': self.context['request'].user,
             'contact_email': self.context['request'].user.email,
             'slug': slugify(validated_data.get('title')),
+            'contact_phone': validated_data.get('contact_phone'),
+            'location': validated_data.get('location'),
+            'condition': validated_data.get('condition'),
+            'brand': validated_data.get('brand'),
             # Add other fields as needed
         }
 

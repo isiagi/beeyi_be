@@ -109,6 +109,21 @@ LOGGING = {
 
 WSGI_APPLICATION = 'beyi_be.wsgi.application'
 
+import environ
+import os
+
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+
+# Set the project base directory
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Take environment variables from .env file
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -117,10 +132,10 @@ import dj_database_url
 
 DATABASES = {
     'default': dj_database_url.config(
-        default="postgres://avnadmin:AVNS_I7valaVZgCOaxco7Rof@pg-35c4daa-codedeveloper47-d29f.c.aivencloud.com:14503/defaultdb?sslmode=require",
-        # conn_max_age=env("CONN_MAX_AGE", cast=int),
-        # ssl_require=env("SSL_REQUIRE", cast=bool),
-        # conn_health_checks=env("CONN_HEALTH_CHECKS", cast=bool),
+        default=env("DATABASE_URL"),
+        conn_max_age=env("CONN_MAX_AGE", cast=int),
+        ssl_require=env("SSL_REQUIRE", cast=bool),
+        conn_health_checks=env("CONN_HEALTH_CHECKS", cast=bool),
     )
 }
 
