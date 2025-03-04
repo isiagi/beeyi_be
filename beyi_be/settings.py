@@ -63,6 +63,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
+    'https://beeyi-yo.vercel.app'
 ]
 
 # Add the following configuration for Django REST Framework
