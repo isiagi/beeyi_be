@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class SubCategory(models.Model):
     name = models.CharField(max_length=200, unique=True)
-    category = models.ForeignKey('category.Category', on_delete=models.CASCADE, related_name='subcategories')
+    category = models.ForeignKey('category.Category', on_delete=models.CASCADE, related_name='subcategoriesjk')
     description = models.TextField(blank=True)
 
     def __str__(self):
