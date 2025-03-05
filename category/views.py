@@ -10,6 +10,7 @@ from rest_framework.pagination import PageNumberPagination
 from .serializer import RecursiveCategorySerializer
 from .models import Category
 from .serializer import CategorySerializer
+from django.shortcuts import get_object_or_404
 
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
@@ -50,4 +51,14 @@ class CategoryViewSet(viewsets.ModelViewSet):
             return self.get_paginated_response(serializer.data)
         
         serializer = ProductSerializer(products, many=True)
+        return Response(serializer.data)
+    
+    @action(detail=False, methods=['get'], url_path='subcategories/(?P<slug>[^/.]+)')
+    def subcategories(self, request, slug=None):
+        """
+        Retrieve all subcategories of a given category (recursively) using slug.
+        """
+        category = get_object_or_404(Category, slug=slug)
+        subcategories = category.get_all_subcategories()
+        serializer = CategorySerializer(subcategories, many=True)
         return Response(serializer.data)

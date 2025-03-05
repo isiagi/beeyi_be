@@ -110,3 +110,12 @@ class ProductViewSet(viewsets.ModelViewSet):
                 {'error': 'Image not found'},
                 status=status.HTTP_404_NOT_FOUND
             )
+        
+
+    # Get products of current user
+    @action(detail=False, methods=['get'])
+    def my_products(self, request):
+        user = request.user
+        products = Product.objects.filter(seller=user)
+        serializer = ProductSerializer(products, many=True)
+        return Response(serializer.data)
